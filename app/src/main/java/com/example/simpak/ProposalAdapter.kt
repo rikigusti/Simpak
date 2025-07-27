@@ -1,78 +1,58 @@
+package com.example.simpak.adapter
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.simpak.R
+import com.example.simpak.databinding.ItemProposalBinding
+import com.example.simpak.model.Proposal
 
-class ProposalAdapter(private var proposalList: List<Proposal>) :
-    RecyclerView.Adapter<ProposalAdapter.ProposalViewHolder>(), Filterable {
+class ProposalAdapter(
+    private var proposalList: List<Proposal>,
+    private val onItemClick: (Proposal) -> Unit
+) : RecyclerView.Adapter<ProposalAdapter.ProposalViewHolder>() {
 
-    private var filteredList = proposalList.toMutableList()
+    inner class ProposalViewHolder(val binding: ItemProposalBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(proposal: Proposal) {
+            binding.tvJudulProposal.text = proposal.judul
+            binding.tvNamaPengaju.text = proposal.pengaju
+            binding.tvWaktuProposal.text = proposal.waktu
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProposalViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_proposal, parent, false)
-        return ProposalViewHolder(view)
+            // Tampilkan status dan ikon status
+            binding.tvStatus.text = proposal.status
+            val statusDrawable = when (proposal.status.lowercase()) {
+                "disetujui" -> R.drawable.ic_check
+                "menunggu" -> R.drawable.ic_status_pending
+                else -> R.drawable.ic_status_rejected
+            }
+            binding.ivStatus.setImageResource(statusDrawable)
+
+            // Load image
+            Glide.with(binding.root.context)
+                .load(proposal.fotoUrl)
+                .placeholder(R.drawable.placeholder_image)
+                .into(binding.ivProposal)
+
+            binding.root.setOnClickListener { onItemClick(proposal) }
+        }
     }
 
-    override fun getItemCount(): Int = filteredList.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProposalViewHolder {
+        val binding = ItemProposalBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ProposalViewHolder(binding)
+    }
+
+    override fun getItemCount() = proposalList.size
 
     override fun onBindViewHolder(holder: ProposalViewHolder, position: Int) {
-        val proposal = filteredList[position]
-        holder.bind(proposal)
+        holder.bind(proposalList[position])
     }
 
     fun updateData(newList: List<Proposal>) {
         proposalList = newList
-        filteredList = newList.toMutableList()
         notifyDataSetChanged()
-    }
-
-    inner class ProposalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(proposal: Proposal) {
-            val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
-            val tvAuthor = itemView.findViewById<TextView>(R.id.tvAuthor)
-            val tvTime = itemView.findViewById<TextView>(R.id.tvTime)
-            val ivStatus = itemView.findViewById<ImageView>(R.id.ivStatus)
-
-            tvTitle.text = proposal.title
-            tvAuthor.text = proposal.applicant
-            tvTime.text = proposal.timeRemaining
-
-            // Menentukan ikon status berdasarkan nilai status
-            val statusIcon = when (proposal.status.lowercase()) {
-                "disetujui" -> R.drawable.ic_status_approved
-                "ditolak" -> R.drawable.ic_status_rejected
-                else -> R.drawable.ic_status_pending // default: menunggu
-            }
-
-            ivStatus.setImageResource(statusIcon)
-        }
-    }
-
-    override fun getFilter(): Filter {
-        return object : Filter() {
-            override fun performFiltering(constraint: CharSequence?): FilterResults {
-                val keyword = constraint?.toString()?.lowercase()?.trim() ?: ""
-                val results = if (keyword.isEmpty()) {
-                    proposalList
-                } else {
-                    proposalList.filter {
-                        it.title.lowercase().contains(keyword) ||
-                                it.applicant.lowercase().contains(keyword)
-                    }
-                }
-
-                return FilterResults().apply { values = results }
-            }
-
-            override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                filteredList = (results?.values as? List<Proposal>)?.toMutableList() ?: mutableListOf()
-                notifyDataSetChanged()
-            }
-        }
     }
 }

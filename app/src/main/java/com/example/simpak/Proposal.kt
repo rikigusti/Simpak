@@ -1,9 +1,14 @@
+package com.example.simpak.model
+
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Proposal(
-    val title: String,
-    val author: String,
-    val timeRemaining: String,
-    val status: String
-) {
-    val applicant: String
-        get() = author
-}
+    val id: String = "",
+    val judul: String = "",
+    val pengaju: String = "",
+    val waktu: String = "",
+    val status: String = "",
+    val fotoUrl: String = ""
+) : Parcelable

@@ -1,90 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutProposal"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F9F9">
+    android:background="@color/white">
 
-    <!-- Header -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:gravity="center_vertical"
-        android:background="@color/white"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Proposal"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/black" />
-
-        <!-- Icon Tambah Proposal -->
-        <ImageButton
-            android:id="@+id/btnAddProposal"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_add"
-            android:background="@drawable/circle_bg"
-            android:contentDescription="Ajukan Proposal"
-            android:padding="8dp"
-            android:tint="@color/primary" />
-
-        <!-- Icon User -->
-        <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/ic_user"
-            android:background="@drawable/circle_bg"
-            android:padding="6dp" />
-    </LinearLayout>
-
-    <!-- Search -->
     <EditText
         android:id="@+id/etSearchProposal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Cari proposal..."
+        android:hint="Cari judul proposal..."
         android:padding="12dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/search_bg"
+        android:layout_margin="8dp"
+        android:background="@drawable/bg_search_box"
         android:drawableStart="@drawable/ic_search"
-        android:drawablePadding="8dp"
-        android:textColor="@color/black"
-        android:textColorHint="#888888" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-    <!-- Tabs -->
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabFilter"
+        android:id="@+id/tabLayoutProposal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:tabIndicatorColor="@color/primary"
-        app:tabSelectedTextColor="@color/primary"
-        app:tabTextColor="#888888"
-        android:layout_marginBottom="8dp" />
+        app:tabIndicatorColor="@color/white"
+        app:tabSelectedTextColor="@color/black"
+        app:tabTextColor="@color/gray"
+        android:background="@color/blue"/>
 
-    <!-- Proposal List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvProposalList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="16dp" />
+        android:padding="8dp" />
 
-    <!-- Bottom Navigation -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddProposal"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="@color/blue"
+        android:contentDescription="Tambah Proposal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        app:menu="@menu/bottom_nav_menu"
-        app:itemIconTint="@color/primary"
-        app:itemTextColor="@color/primary" />
+    android:id="@+id/bottomNavigation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    app:menu="@menu/bottom_nav_menu"
+    app:itemIconTint="@color/primary"
+    app:itemTextColor="@color/primary" />
 </LinearLayout>

@@ -1,42 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
-    <EditText
-        android:id="@+id/etJudulProposal"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Judul Proposal"
-        android:padding="12dp"
-        android:background="@drawable/edittext_bg" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etPengaju"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nama Pengaju"
-        android:padding="12dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/edittext_bg" />
+        <!-- Label Kategori -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kategori"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-    <Button
-        android:id="@+id/btnSubmitProposal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ajukan"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/primary"
-        android:textColor="#FFFFFF" />
-    <EditText
-        android:id="@+id/etSearchProposal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/edittext_bg"
-        android:hint="Cari proposal..."
-        android:padding="12dp"/>
+        <!-- ChipGroup Kategori -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupKategori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleSelection="true">
 
-</LinearLayout>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSeminar"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Seminar"
+                android:checkable="true"
+                android:backgroundTint="@color/blue"
+                android:textColor="@color/chip_text_selector" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPelatihan"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pelatihan"
+                android:checkable="true"
+                android:backgroundTint="@color/blue"
+                android:textColor="@color/chip_text_selector" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipLomba"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lomba"
+                android:checkable="true"
+                android:backgroundTint="@color/blue"
+                android:textColor="@color/chip_text_selector" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Judul Proposal -->
+        <EditText
+            android:id="@+id/etJudulProposal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Judul Proposal"
+            android:inputType="text"
+            android:textColor="@android:color/black"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edittext_bg" />
+
+        <!-- Nama Pengaju -->
+        <EditText
+            android:id="@+id/etPengaju"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Pengaju"
+            android:inputType="textPersonName"
+            android:textColor="@android:color/black"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edittext_bg"/>
+
+        <!-- Deskripsi Proposal -->
+        <EditText
+            android:id="@+id/etDeskripsiProposal"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Deskripsi Proposal"
+            android:gravity="top|start"
+            android:inputType="textMultiLine"
+            android:textColor="@android:color/black"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/edittext_bg"/>
+
+        <!-- Tombol Ajukan -->
+        <Button
+            android:id="@+id/btnSubmitProposal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajukan Proposal"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/blue"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+</ScrollView>

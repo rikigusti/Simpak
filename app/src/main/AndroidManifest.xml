@@ -9,8 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Simpak">
 
+        <activity android:name=".PilihKelasActivity" />
         <activity android:name=".ProposalActivity" />
         <activity android:name=".AddProposalActivity" />
+        <activity android:name=".DetailProposalActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
