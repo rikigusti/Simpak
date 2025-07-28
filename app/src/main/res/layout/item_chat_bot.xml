@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:orientation="vertical">
+
+    <!-- Layout untuk chat dari BOT -->
+    <LinearLayout
+        android:id="@+id/layoutBot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="4dp">
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_bot_avatar"
+            android:background="@drawable/circle_orange"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/tvChatBot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="280dp"
+            android:background="@drawable/bg_bot_chat"
+            android:padding="12dp"
+            android:text="Pesan dari bot"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <!-- Layout untuk chat dari USER -->
+    <LinearLayout
+        android:id="@+id/layoutUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -10,45 +10,80 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Gambar Proposal -->
         <ImageView
             android:id="@+id/ivFotoProposal"
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/placeholder_image" />
+            android:src="@drawable/placeholder_image"
+            android:contentDescription="Gambar Proposal" />
 
+        <!-- Judul -->
         <TextView
             android:id="@+id/tvJudul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Judul Proposal"
-            android:textColor="@color/black"
+            android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="16dp" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginVertical="8dp" />
+
+        <!-- Pengaju -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pengaju:"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/tvPengaju"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pengaju"
-            android:textColor="@color/black"
-            android:layout_marginTop="8dp" />
+            android:text="Nama Pengaju"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Waktu -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Waktu:"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/tvWaktu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Waktu"
-            android:textColor="@color/black"
-            android:layout_marginTop="8dp" />
+            android:text="12 Desember 2025"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Status -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status:"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/tvStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Status"
-            android:textColor="@color/black"
-            android:layout_marginTop="8dp" />
+            android:text="Disetujui"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginBottom="16dp" />
+
     </LinearLayout>
 </ScrollView>

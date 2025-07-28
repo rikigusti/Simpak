@@ -43,37 +43,15 @@
         android:layout_height="wrap_content"
         android:hint="Cari kelas..."
         android:padding="12dp"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/search_bg"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="8dp"
         android:textColor="@color/black"
         android:textColorHint="#888888" />
-
-    <!-- Kategori -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="8dp"
-        android:paddingHorizontal="16dp">
-
-        <Button
-            android:id="@+id/btnKelas"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Kelas" />
-
-        <Button
-            android:id="@+id/btnBarang"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Barang" />
-    </LinearLayout>
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
@@ -82,7 +60,8 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:clipToPadding="false"
-        android:paddingHorizontal="16dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:paddingBottom="16dp" />
 
     <!-- Bottom Navigation -->

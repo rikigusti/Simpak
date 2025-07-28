@@ -2,6 +2,9 @@ package com.example.simpak
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,15 +15,18 @@ class PilihKelasActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: KelasAdapter
     private val daftarKelas = mutableListOf<Kelas>()
+    private lateinit var etSearchKelas: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pilih_kelas)
 
+        // Inisialisasi view
         recyclerView = findViewById(R.id.recyclerViewKelas)
+        etSearchKelas = findViewById(R.id.etSearchKelas) // Tambahkan EditText di layout
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Dummy data
+        // Data kelas (dummy atau real)
         daftarKelas.addAll(
             listOf(
                 Kelas("A101", "Kosong", "-", false, "Gedung A"),
@@ -30,11 +36,23 @@ class PilihKelasActivity : AppCompatActivity() {
             )
         )
 
+        // Setup Adapter
         adapter = KelasAdapter(daftarKelas) { kelas ->
-            // Aksi saat item diklik
+            // Aksi klik
+            // val intent = Intent(this, DetailKelasActivity::class.java)
+            // intent.putExtra("kelas", kelas)
+            // startActivity(intent)
         }
-
         recyclerView.adapter = adapter
+
+        // Filter teks saat user mengetik
+        etSearchKelas.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                adapter.filter.filter(s)
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
 
         // Bottom Navigation
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
@@ -53,7 +71,11 @@ class PilihKelasActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_search -> {
-
+                    true
+                }
+                R.id.nav_message -> {
+                    startActivity(Intent(this, ChatActivity::class.java))
+                    finish()
                     true
                 }
                 else -> false

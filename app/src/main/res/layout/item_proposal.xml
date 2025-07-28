@@ -6,14 +6,18 @@
     card_view:cardCornerRadius="12dp"
     card_view:cardElevation="4dp"
     android:layout_margin="8dp"
-    android:background="@color/white">
+    android:backgroundTint="@android:color/white"
+    android:foreground="?attr/selectableItemBackground">
 
     <LinearLayout
-        android:padding="12dp"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:minHeight="100dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp">
 
+        <!-- Gambar Proposal -->
         <ImageView
             android:id="@+id/ivProposal"
             android:layout_width="60dp"
@@ -23,44 +27,50 @@
             android:background="@drawable/rounded_bg"
             android:contentDescription="Proposal Image" />
 
+        <!-- Konten Text -->
         <LinearLayout
-            android:layout_marginStart="12dp"
-            android:orientation="vertical"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvJudulProposal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Judul Proposal"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"/>
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textColor="@android:color/black" />
 
             <TextView
                 android:id="@+id/tvNamaPengaju"
-                android:text="Nama Pengaju"
-                android:textSize="14sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"/>
+                android:text="Nama Pengaju"
+                android:textSize="14sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColor="@android:color/darker_gray" />
 
             <TextView
                 android:id="@+id/tvWaktuProposal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Waktu"
                 android:textSize="12sp"
-                android:textColor="#888888"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textColor="@android:color/darker_gray" />
         </LinearLayout>
 
+        <!-- Status -->
         <LinearLayout
-            android:orientation="vertical"
-            android:gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/ivStatus"
@@ -71,11 +81,12 @@
 
             <TextView
                 android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Disetujui"
                 android:textSize="12sp"
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:textColor="@android:color/black"
+                android:layout_marginTop="4dp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

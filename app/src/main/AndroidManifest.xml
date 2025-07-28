@@ -17,6 +17,10 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
 
+        <!-- ✅ Tambahkan Activity Bantuan -->
+        <activity android:name=".ChatActivity" />
+
+        <!-- Activity utama -->
         <activity
             android:name=".OnboardingActivity"
             android:exported="true">
@@ -27,6 +31,5 @@
         </activity>
 
     </application>
-
 
 </manifest>

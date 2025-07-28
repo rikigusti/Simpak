@@ -114,8 +114,14 @@ class ProposalActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_proposal -> true
+
                 R.id.nav_search -> {
                     startActivity(Intent(this, PilihKelasActivity::class.java))
+                    finish()
+                    true
+                }
+                R.id.nav_message -> {
+                    startActivity(Intent(this, ChatActivity::class.java))
                     finish()
                     true
                 }

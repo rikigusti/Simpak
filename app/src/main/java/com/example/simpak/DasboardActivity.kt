@@ -6,6 +6,11 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
+// ✅ Import Activity dengan benar
+import com.example.simpak.ChatActivity
+import com.example.simpak.PilihKelasActivity
+import com.example.simpak.ProposalActivity
+
 class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,11 +25,11 @@ class DashboardActivity : AppCompatActivity() {
 
         // Bottom Navigation
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNavigation)
-        bottomNav.selectedItemId = R.id.nav_home // Tandai halaman aktif
+        bottomNav.selectedItemId = R.id.nav_home
 
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> true // Tetap di halaman dashboard
+                R.id.nav_home -> true
 
                 R.id.nav_proposal -> {
                     startActivity(Intent(this, ProposalActivity::class.java))
@@ -35,6 +40,13 @@ class DashboardActivity : AppCompatActivity() {
 
                 R.id.nav_search -> {
                     startActivity(Intent(this, PilihKelasActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    finish()
+                    true
+                }
+
+                R.id.nav_message -> {
+                    startActivity(Intent(this, ChatActivity::class.java))
                     overridePendingTransition(0, 0)
                     finish()
                     true
