@@ -125,6 +125,12 @@ class ProposalActivity : AppCompatActivity() {
                     finish()
                     true
                 }
+                R.id.nav_account -> {
+                    startActivity(Intent(this, AkunActivity::class.java))
+                    overridePendingTransition(0, 0)
+                    finish()
+                    true
+                }
                 else -> false
             }
         }

@@ -16,6 +16,11 @@
         <activity android:name=".DashboardActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".AkunActivity" />
+        <activity android:name=".RiwayatActivity" />
+        <activity android:name=".EditAkunActivity" />
+        <activity android:name=".PeraturanPrivasiActivity" />
+
 
         <!-- ✅ Tambahkan Activity Bantuan -->
         <activity android:name=".ChatActivity" />
